@@ -141,7 +141,7 @@ end
 
 % for brevity and expediency
 Z   = zeros(V.Ncells*V.T,1);                    % zero vector
-M   = spdiags([repmat(-P.gam,V.T,1) repmat(Z,1,V.Ncells-1) (1+Z)], -V.Ncells:0,V.Ncells*V.T,V.Ncells*V.T);  % matrix transforming calcium into spikes, ie n=M*C
+M   = spdiags([repmat(-P.gam,V.T,1) repmat(Z,1,V.Ncells-1) (1+Z)], double(-V.Ncells:0),double(V.Ncells*V.T),double(V.Ncells*V.T));  % matrix transforming calcium into spikes, ie n=M*C
 I   = speye(V.Ncells*V.T);                      % create out here cuz it must be reused
 H1  = I;                                        % initialize memory for Hessian matrix
 H2  = I;                                        % initialize memory for other part of Hessian matrix
